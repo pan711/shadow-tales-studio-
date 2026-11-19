@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10101a"><meta name="description" content="Shadow Tales Studio - create stories, characters and worlds">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="style.css"><title>Shadow Tales Studio</title>
+</head>
+<body>
+<header class="top"><div class="brand"><span class="mark">✦</span><div><b>SHADOW TALES</b><small>ANIMATION STUDIO</small></div></div><span class="pill">FREE FOUNDATION · V2</span></header>
+<div class="shell">
+<aside class="sidebar">
+ <div class="side-label">WORKSPACE</div>
+ <button class="nav active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+ <button class="nav" data-page="projects">▣ <span>Projects</span></button>
+ <button class="nav" data-page="characters">♟ <span>Asset Library</span></button>
+ <button class="nav" data-page="story">✎ <span>Story Studio</span></button>
+ <div class="side-label">PRODUCTION</div>
+ <button class="nav" data-page="pipeline">◈ <span>Production Plan</span></button>
+ <button class="nav" data-page="backup">⇧ <span>Backup & Restore</span></button>
+ <div class="side-note">PHONE-FIRST STUDIO<br><small>Data stays in this browser</small></div>
+</aside>
+<main id="main">
+<section class="page" id="dashboard">
+ <div class="eyebrow">YOUR CREATIVE WORKSPACE</div><h1>Welcome to <em>Shadow Tales</em></h1><p class="muted">एक Prompt से अपनी कहानी की दुनिया तैयार करने की शुरुआत करें।</p>
+ <div class="hero"><div><span class="pill">STUDIO FOUNDATION · V2</span><h2>Your story.<br>Your universe.</h2><p>Projects बनाएं, अपने Characters, Animals, Vehicles और Locations को एक जगह सेव करें।</p><button class="primary" id="heroNew">＋ Create New Project</button></div><div class="hero-art">✧<span>ST</span>✧</div></div>
+ <div class="stats"><div class="stat"><small>PROJECTS</small><b id="statProjects">0</b></div><div class="stat"><small>SAVED ASSETS</small><b id="statCharacters">0</b></div><div class="stat"><small>APPROVED STAGES</small><b id="statStages">0</b></div></div>
+ <div class="section-head"><div><h2>Recent Projects</h2><p class="muted">आपके हाल के काम</p></div><button class="textbtn" data-goto="projects">View all →</button></div><div id="recent" class="cards empty">अभी कोई प्रोजेक्ट नहीं है।</div>
+ <div class="notice"><b>अभी क्या काम करता है?</b><p>Project management, custom asset records, reference-image storage (browser limit के भीतर), script duration estimate, production checklist और backup। AI image/video generation अभी इस build में जुड़ा नहीं है।</p></div>
+</section>
+<section class="page hidden" id="projects"><div class="eyebrow">YOUR WORK</div><div class="section-head"><div><h1>Projects</h1><p class="muted">अपनी कहानियों और Episodes को संभालें।</p></div><button class="primary" id="newProject">＋ New Project</button></div><div id="projectList" class="cards empty"></div></section>
+<section class="page hidden" id="characters"><div class="eyebrow">CHARACTERS · CREATURES · OBJECTS</div><div class="section-head"><div><h1>Asset Library</h1><p class="muted">इंसान, जानवर, गाड़ियाँ, जगहें और वस्तुएँ बनाकर सेव करें।</p></div><button class="primary" id="newCharacter">＋ Create Asset</button></div>
+ <div class="toolbar"><input id="assetSearch" placeholder="नाम या विवरण खोजें…"><select id="assetFilter"><option value="All">सभी Assets</option><option>Human</option><option>Animal</option><option>Vehicle</option><option>Fantasy Creature</option><option>Location</option><option>Object</option><option>Robot</option><option>Other</option></select></div>
+ <div class="chips"><span>2D</span><span>3D</span><span>Photo Reference</span><span>Reusable Library</span></div>
+ <div id="characterList" class="cards empty">अभी कोई Asset नहीं बनाया गया।</div>
+</section>
+<section class="page hidden" id="story"><div class="eyebrow">SCRIPT WORKSPACE</div><h1>Story Studio</h1><p class="muted">स्क्रिप्ट लिखें। अवधि का मोटा अनुमान अपने आप निकलेगा।</p><div class="panel"><label>Project चुनें<select id="storyProject"></select></label><label>Episode / Story Title<input id="storyTitle" placeholder="जैसे: रहस्यमयी जंगल"></label><label>Script<textarea id="scriptText" rows="13" placeholder="यहाँ कहानी, narration और dialogues लिखें…"></textarea></label><div class="duration"><div><small>ESTIMATED DURATION</small><b id="duration">00:00</b><small id="wordCount">0 शब्द</small></div><p>यह केवल narration गति पर आधारित अनुमान है। Scene action, pauses और editing से वास्तविक अवधि बदल सकती है।</p></div><button class="primary" id="saveScript">Save Script</button><span id="scriptStatus" class="successText"></span></div></section>
+<section class="page hidden" id="pipeline"><div class="eyebrow">PRODUCTION WORKFLOW</div><h1>Production Plan</h1><p class="muted">हर चरण की जाँच करें और पूरा होने पर मंजूरी दें।</p><div class="panel"><label>Project चुनें<select id="pipelineProject"></select></label><div id="stageList"></div></div></section>
+<section class="page hidden" id="backup"><div class="eyebrow">YOUR DATA, YOUR CONTROL</div><h1>Backup & Restore</h1><p class="muted">Projects और Assets की JSON कॉपी डाउनलोड या वापस Import करें।</p><div class="panel"><h3>Export Backup</h3><p class="muted">नियमित रूप से backup डाउनलोड करें।</p><button class="primary" id="exportData">Download Backup</button><hr><h3>Restore Backup</h3><p class="muted">Import करने पर मौजूदा browser data बदल जाएगा।</p><input type="file" id="importFile" accept=".json,application/json"><button class="outline" id="importData">Restore Backup</button><p id="backupStatus" class="successText"></p></div></section>
+</main></div>
+<dialog id="projectDialog"><form method="dialog" id="projectForm"><button class="close" value="cancel">×</button><h2>New Project</h2><label>Project Name<input id="projectName" required maxlength="80" placeholder="My First Episode"></label><label>Genre<select id="projectGenre"><option>Fantasy</option><option>Mystery</option><option>Adventure</option><option>Comedy</option><option>Animal Story</option><option>Sci-Fi</option><option>Drama</option><option>Other</option></select></label><button class="primary" value="save" id="createProject">Create Project</button></form></dialog>
+<dialog id="characterDialog" class="wideDialog"><form method="dialog" id="characterForm"><button class="close" value="cancel">×</button><h2>Create Your Asset</h2><p class="muted">यह अभी Asset की जानकारी और reference सेव करता है; वास्तविक 2D/3D model generation अगला development चरण है।</p>
+<div class="formGrid">
+<label>Asset Name<input id="charName" required maxlength="60" placeholder="जैसे: आरव / शेरू / Red Bus"></label>
+<label>Asset Type<select id="charType"><option>Human</option><option>Animal</option><option>Vehicle</option><option>Fantasy Creature</option><option>Location</option><option>Object</option><option>Robot</option><option>Other</option></select></label>
+<label>Visual Style<select id="charStyle"><option>3D Cinematic</option><option>3D Anime</option><option>2D Anime</option><option>2D Cartoon</option><option>Realistic Reference</option><option>Custom</option></select></label>
+<label>Use in Story<select id="charUse"><option>Character</option><option>Background / Location</option><option>Vehicle</option><option>Prop / Object</option><option>Creature</option></select></label>
+<label class="full">Appearance / Details<textarea id="charDesc" rows="3" placeholder="चेहरा, रंग, आकार, कपड़े, मॉडल, खास पहचान…"></textarea></label>
+<label>Personality / Behaviour<input id="charPersonality" placeholder="बहादुर, शांत, तेज…"></label>
+<label>Voice / Sound<input id="charVoice" placeholder="गहरी आवाज / शेर की दहाड़ / इंजन…"></label>
+<label class="full">Reference Image <input type="file" id="charImage" accept="image/*"><small class="hint">छोटी फोटो चुनें (लगभग 1.5 MB तक)। यह reference के रूप में इस browser में सेव होगी।</small></label>
+</div><button class="primary" value="save" id="createCharacter">Save Asset</button></form></dialog>
+<script src="app.js"></script>
+</body></html>
