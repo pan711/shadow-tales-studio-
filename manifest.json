@@ -1,0 +1,17 @@
+{
+  "name": "Shadow Tales Studio",
+  "short_name": "Shadow Tales",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0d0d16",
+  "theme_color": "#10101b",
+  "description": "Free animation production workspace",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
